@@ -38,7 +38,9 @@
 &pm660_charger {
 	qcom,use-extcon;
 	qcom,pd-not-supported;
+	qcom,aicl_rerun_enable = <1>;
 	qcom,auto-recharge-soc;
+	qcom,fcc-max-ua = <300>;
 	#cooling-cells = <2>;
 	dpdm-supply = <&usb_otg>;
 
@@ -119,9 +121,18 @@
 	qcom,fg-cutoff-current = <50>;
 	qcom,fg-sync-sleep-threshold-ma = <30>;
 	qcom,battery-data = <&mtp_batterydata>;
+	qcom,battery-thermal-coefficients = [
+		D2 50 FF
+	];
 	qcom,fg-bmd-en-delay-ms = <300>;
 	qcom,fg-force-load-profile;
-	qcom,fg-jeita-thresholds = <0 20 45 60>;
+	qcom,fg-jeita-cold-critical-model-threshold = <16>;
+	qcom,fg-jeita-en = <1>;
+	qcom,fg-jeita-hyst-temp = <2>;
+	qcom,fg-jeita-soft-cold-critical-fv-cc = <4450 150>;
+	qcom,fg-jeita-soft-cold-fv-cc = <4450 300>;
+	qcom,fg-jeita-soft-hot-fv-cc = <4200 300>;
+	qcom,fg-jeita-thresholds = <2 21 46 58>;
 	status = "ok";
 };
 

@@ -311,7 +311,6 @@
 
 			qcom,timing-db-mode;
 			qcom,mdss-mdp = <&mdss_mdp>;
-			vdd-supply = <&pm660_l17>;
 			vddio-supply = <&pm660_l6>;
 
 			clocks = <&gcc_mdss GCC_MDSS_BYTE0_CLK>,

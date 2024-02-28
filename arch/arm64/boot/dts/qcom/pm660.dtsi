@@ -42,8 +42,10 @@
 				     <0x0 0x8 0x5 IRQ_TYPE_NONE>;
 			interrupt-names = "kpdpwr", "resin",
 					"resin-bark", "kpdpwr-resin-bark";
-			qcom,pon-dbc-delay = <15625>;
+			qcom,pon-dbc-delay = <70000>;
 			qcom,kpdpwr-sw-debounce;
+			qcom,s3-debounce = <16>;
+			qcom,s3-src = "kpdpwr-and-resin";
 			qcom,system-reset;
 			qcom,store-hard-reset-reason;
 

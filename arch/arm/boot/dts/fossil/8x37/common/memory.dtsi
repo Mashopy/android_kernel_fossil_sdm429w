@@ -11,10 +11,6 @@
  * GNU General Public License for more details.
  */
 
-/* TODO:
- * optimize memory when building chipcode for GPS mode ready
-*/
-#if 0
 &modem_mem {
 	reg = <0x0 0x86800000 0x0 0x1e00000>;
 };
@@ -22,18 +18,7 @@
 &adsp_fw_mem {
 	reg = <0x0 0x88600000 0x0 0x1500000>;
 };
+
 &wcnss_fw_mem {
 	reg = <0x0 0x89b00000 0x0 0x700000>;
 };
-#else
-&modem_mem {
-	reg = <0x0 0x86800000 0x0 0x5000000> ;
-};
-
-&adsp_fw_mem {
-	reg = <0x0 0x8b800000 0x0 0x1500000>;
-};
-&wcnss_fw_mem {
-	reg = <0x0 0x8cd00000 0x0 0x700000>;
-};
-#endif

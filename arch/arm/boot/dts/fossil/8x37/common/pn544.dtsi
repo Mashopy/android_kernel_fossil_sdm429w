@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2015-2016, 2018-2019, 2002 The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&i2c_2 { /* BLSP2 QUP2 (NFC) */
+        status = "ok";
+        pn544@28 {
+                compatible = "nxp,pn544";
+                reg = <0x28>;
+                nxp,pn544-irq = <&tlmm 126 0x00>;
+                nxp,pn544-ven = <&tlmm 125 0x00>;
+                nxp,pn544-fw-dwnld = <&tlmm 130 0x00>;
+                nxp,pn544-clkreq = <&pm660_gpios 4 0x00>;
+                nxp,pn544-ese-pwr = <&tlmm 93 0x00>;
+                interrupt-parent = <&tlmm>;
+                qcom,clk-src = "BBCLK2";
+                interrupts = <126 0>;
+                interrupt-names = "nfc_irq";
+                pinctrl-names = "nfc_active", "nfc_suspend";
+                pinctrl-0 = <&nfc_int_active &nfc_disable_active
+                                                &nfc_clk_default>;
+                pinctrl-1 = <&nfc_int_suspend &nfc_disable_suspend>;
+                /* TODO: Need to check clocks */
+                clocks = <&rpmcc 32>;
+                clock-names = "ref_clk";
+        };
+};

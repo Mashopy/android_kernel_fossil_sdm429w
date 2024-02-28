@@ -24,6 +24,12 @@
 #include "../common/memory.dtsi"
 #include "../common/dcvs.dtsi"
 #include "../common/nq-nfc.dtsi"
+#include "../common/pn544.dtsi"
+#include "../common/spi.dtsi"
+#include "../common/usb.dtsi"
+#include "../common/regulator.dtsi"
+#include "../common/audio.dtsi"
+#include "../common/display.dtsi"
 #include "dsi_auo_416p_amoled_cmd.dtsi"
 
 / {
@@ -32,10 +38,6 @@
 	qcom,msm-id = <437 0x0>;
 	qcom,board-id = <0x00010b 0x0a>;
 	qcom,pmic-id = <0x0002001b 0x0 0x0 0x0>;
-};
-
-&mdss_mdp {
-	qcom,mdss-pref-prim-intf = "dsi";
 };
 
 &mdss_dsi {
@@ -85,3 +87,6 @@
 &mdss_dsi1_pll {
 	status = "disabled";
 };
+
+#include "../common/pinctrl.dtsi"
+#include "../common/thermal.dtsi"
